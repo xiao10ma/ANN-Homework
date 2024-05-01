@@ -56,6 +56,11 @@ parser.add_argument('--model_path', default='./trained_model/ResNet', type=str)
 network = ResNet50().to(device)
 ```
 
+To visualize the training process, you can use tensorboard:
+```bash
+tensorboard --logdir={record_path}
+```
+
 <details>
 <summary><span style="font-weight: bold;">Command Line Arguments for train.py</span></summary>
 
