@@ -46,7 +46,7 @@ If you are my teaching assistant, you need to copy the 'trained_model' directory
 │   └── VGG
 └── train.py
 ```
-### train
+### Train
 Then, you can run the project with just(default use AlexNet):
 ```
 python train.py
@@ -100,8 +100,7 @@ tensorboard --logdir={record_path}
 
 </details>
 <br>
-
-### evaluate
+### Evaluate
 I have implemented the evaluation function in train.py; you can call it directly.
 
 If you have any questions, please contact me through email. My email: mazp@mail2.sysu.edu.cn
