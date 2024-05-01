@@ -29,13 +29,21 @@ If you are my teaching assistant, you need to copy the 'trained_model' directory
 ```bash
 .
 ├── data
+│   ├── test
+│   └── train
 ├── face_dataset.py
 ├── model.py
 ├── net_utils.py
 ├── output
+│   ├── AlexNet
+│   ├── ResNet
+│   └── VGG
 ├── README.md
 ├── requirements.txt
 ├── trained_model
+│   ├── AlexNet
+│   ├── ResNet
+│   └── VGG
 └── train.py
 ```
 
