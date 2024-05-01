@@ -25,6 +25,19 @@ data
     ├── Sad
     └── Surprise
 ```
+If you are my teaching assistant, you need to copy the 'trained_model' directory from the files I provided into the project directory. The directory structure is as follows:
+```bash
+.
+├── data
+├── face_dataset.py
+├── model.py
+├── net_utils.py
+├── output
+├── README.md
+├── requirements.txt
+├── trained_model
+└── train.py
+```
 
 Then, you can run the project with just(default use AlexNet):
 ```
