@@ -17,8 +17,8 @@ except ImportError:
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-EPOCH = 300
-LR= 0.0002      # AlexNet: 0.00013, VGG: 1e-05, ResNet: 0.0002
+EPOCH = 400
+LR= 0.00013     # AlexNet: 0.00013, VGG: 1e-05, ResNet: 0.0002
 
 def train(network, tb_writer, args):
     train_config = {'data_root' : args.data_source, 'split' : 'train', 'image_size' : (256, 256)}
@@ -37,7 +37,7 @@ def train(network, tb_writer, args):
     iter_end = torch.cuda.Event(enable_timing = True)
 
     # Load trained model
-    begin_epoch, global_step = load_model(network, optimizer, args.model_path, resume=args.resume)
+    begin_epoch, global_step = load_model(network, optimizer, args.model_path)
     # begin_epoch, global_step = 0, 0
 
     for epoch in tqdm(range(begin_epoch, EPOCH)):
@@ -128,9 +128,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Face Recognition')
     parser.add_argument('-s', '--data_source', default='./data', type=str)
     parser.add_argument('-r', '--random', default=True, action='store_false')
-    parser.add_argument('--record_path', default='./output/ResNet/ResNet-lr_{}epoch_{}'.format(LR, EPOCH), type=str)
-    parser.add_argument('--model_path', default='./trained_model/ResNet', type=str)
-    parser.add_argument('--resume', default=True, action='store_false')
+    parser.add_argument('--record_path', default='./output/AlexNet/AlexNet-lr_{}epoch_{}'.format(LR, EPOCH), type=str)
+    parser.add_argument('--model_path', default='./trained_model/AlexNet', type=str)
     parser.add_argument('--save_ep', default=50, type=int)
     parser.add_argument('--save_latest_ep', default=10)
 
@@ -139,9 +138,9 @@ if __name__ == '__main__':
     tb_writer = prepare_output_and_logger(args)
 
 
-    # network = AlexNet().to(device)
+    network = AlexNet().to(device)
     # network = VGG().to(device)
-    network = ResNet50(5).to(device)
+    # network = ResNet50(5).to(device)
 
 
     train(network, tb_writer, args)
